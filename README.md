@@ -9,3 +9,15 @@
 
   Run `npm run dev` to start the development server.
   
+  ## Deployment
+
+  ### Vercel SPA Refresh Fix
+  This app uses client-side routing (`BrowserRouter`). On Vercel, directly loading a nested route or refreshing can cause a 404 unless unmatched paths fall back to `index.html`.
+
+  Fix: a `vercel.json` is included to rewrite all non-file routes to `index.html`.
+
+  - Config: see [vercel.json](vercel.json)
+  - After pushing, redeploy on Vercel to apply the change.
+
+  Alternative: switch to `HashRouter` if you prefer not to use rewrites.
+  
